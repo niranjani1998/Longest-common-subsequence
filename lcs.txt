@@ -4,7 +4,7 @@ def lcs(X, Y):
     
 	n = len(Y) 
     
-	L=[[0 for t in range (len(X))] for t in range (len(Y))]
+	R=[[0 for t in range (len(X))] for t in range (len(Y))]
     	
 	for i in range(m + 1): 
         
@@ -12,17 +12,17 @@ def lcs(X, Y):
             
 			if i == 0 or j == 0 : 
                 
-				L[i][j] = 0
+				R[i][j] = 0
             
 			elif X[i-1] == Y[j-1]: 
                 
-				L[i][j] = L[i-1][j-1]+1
+				R[i][j] = R[i-1][j-1]+1
             
 			else: 
                 
-				L[i][j] = max(L[i-1][j], L[i][j-1]) 
+				R[i][j] = max(R[i-1][j], R[i][j-1]) 
     
-	return L[m][n] 
+	return R[m][n] 
 
 X = "AGGTAB"
 
